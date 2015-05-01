@@ -6,7 +6,7 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="test">
         <!-- Use this jta-data-source if you're testing on JBoss AS 7.1 (setup by jbossas-ds.xml) -->
-        <jta-data-source>jdbc/arquillian</jta-data-source>
+        <jta-data-source>java:jboss/datasources/mysql</jta-data-source>
 
         <!-- Use this jta-data-source if you're testing on JBoss AS 7.0 -->
         <!-- Optionally, you can setup a DataSource with this name in your JBoss AS 7.0 installation -->
@@ -14,7 +14,7 @@
         <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
         -->
         <properties>
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.ddl-generation" value="NONE"/>
             <property name="eclipselink.logging.level.sql" value="FINE"/>
             <property name="eclipselink.logging.parameters" value="true"/>
         </properties>

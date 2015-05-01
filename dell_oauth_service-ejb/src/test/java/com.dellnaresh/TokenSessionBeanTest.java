@@ -49,8 +49,8 @@ public class TokenSessionBeanTest {
     public void testCreateToken() throws Exception {
         Token token=new Token();
         token.setResourceOwner(1234);
-        token.setExpiry(new Timestamp(1234));
-        token.setRevision(new Timestamp(333));
+//        token.setExpiry(new Timestamp(0));
+//        token.setRevision(new Timestamp(33));
         token.setScope("test_scope");
         token.setTokenHolder("Naresh");
         token.setTokenType("CODE");

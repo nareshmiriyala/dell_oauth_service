@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 @Stateless(name = "TokenSessionBean")
 public class TokenSessionBean implements RemoteTokenSessionBean,Serializable {
-    @PersistenceContext(unitName = "persistenceUnit")
+    @PersistenceContext(unitName = "test")
     private EntityManager entityManager;
 
     public TokenSessionBean() {

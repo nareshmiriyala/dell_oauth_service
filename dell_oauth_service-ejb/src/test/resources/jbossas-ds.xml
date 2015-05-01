@@ -5,9 +5,13 @@
         http://www.jboss.org/ironjacamar/schema
         http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
     <datasource enabled="true"
-                jndi-name="jdbc/arquillian"
+                jndi-name="java:jboss/datasources/mysql"
                 pool-name="ArquillianEmbeddedH2Pool">
         <connection-url>jdbc:mysql://localhost:3306/core</connection-url>
-        <driver>mysql</driver>
+        <driver>mysql-connector-java-5.1.35.jar_com.mysql.jdbc.Driver_5_1</driver>
+        <security>
+            <user-name>root</user-name>
+            <password>root</password>
+        </security>
     </datasource>
 </datasources>
