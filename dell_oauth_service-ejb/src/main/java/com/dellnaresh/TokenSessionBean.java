@@ -5,8 +5,11 @@ import com.dellnaresh.oauth.client.RemoteTokenSessionBean;
 import com.dellnaresh.oauth.client.Token;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.validation.Validator;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -16,12 +19,15 @@ import java.io.Serializable;
 public class TokenSessionBean implements RemoteTokenSessionBean,Serializable {
     @PersistenceContext(unitName = "test")
     private EntityManager entityManager;
+    @Inject
+    Validator validator;
 
     public TokenSessionBean() {
     }
 
     @Override
-    public void createToken(Token token) {
+    public void createToken(@NotNull Token token) {
+        validator.validate(token);
         SecurityToken securityToken=new SecurityToken();
         securityToken.setToken(token.getToken());
         securityToken.setExpiry(token.getExpiry());

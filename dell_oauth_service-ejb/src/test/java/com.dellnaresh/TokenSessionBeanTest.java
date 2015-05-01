@@ -36,7 +36,7 @@ public class TokenSessionBeanTest {
     @Deployment
     public static Archive<?> createDeployment() {
         return ShrinkWrap.create(WebArchive.class,"test.war")
-                .addClasses(TokenSessionBean.class, SecurityToken.class, RemoteTokenSessionBean.class,Token.class)
+                .addClasses(TokenSessionBean.class, SecurityToken.class, RemoteTokenSessionBean.class, Token.class)
                 .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource("jbossas-ds.xml")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -58,4 +58,8 @@ public class TokenSessionBeanTest {
         tokenSessionBean.createToken(token);
 
     }
+//    @Test
+//    public void testNullValue()throws Exception{
+//        tokenSessionBean.createToken(null);
+//    }
 }
